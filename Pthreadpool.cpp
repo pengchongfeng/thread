@@ -74,7 +74,9 @@ int Pthreadpool::init()
 
 int Pthreadpool::addFunc(FUNC func, void *param)
 {
+    status->lock();
     eventloop->AddEvent(func, param);
+    status->unlock();
     return 0;
 }
 

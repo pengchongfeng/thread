@@ -32,7 +32,7 @@ int main(int /*argc*/, char */*argv*/[])
     sleep(1);
     printf("begin add!\n");
     pthreadpool->addFunc(test1, &ptr);
-    pthreadpool->addFunc(test1, NULL);
+    pthreadpool->addFunc(test2, NULL);
     printf("end add!\n");
     sleep(1);
     printf("begin run!\n");

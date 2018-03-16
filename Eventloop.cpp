@@ -49,6 +49,7 @@ void Eventloop::GetEvent(FUNC &func, void *&param)
 
     printf("get Event!\n");
     Events *event = _begin;
+    if(_begin == NULL) printf("what?!\n");
     _begin = _begin->next;
     func = event->func;
     param = event->param;
