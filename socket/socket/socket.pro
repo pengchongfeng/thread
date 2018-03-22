@@ -4,5 +4,11 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
-    service.c \
-    client.c
+    client.cpp \
+    service.cpp \
+    clientmain.cpp \
+    servicemain.cpp
+
+HEADERS += \
+    client.h \
+    service.h
