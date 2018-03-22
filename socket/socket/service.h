@@ -13,6 +13,7 @@ public:
 
     virtual void Setsocketopt(){}
 
+    Service():noblock(false){}
 private:
     int fd;
     int clientfd;
