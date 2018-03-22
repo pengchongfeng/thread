@@ -41,10 +41,10 @@ void Client::Recv()
     char buf[1024] = {0};
 
     printf("recv:\n");
-    int len = recv(fd, buf, sizeof(buf), 0);
+    int ret = recv(fd, buf, sizeof(buf), 0);
     fflush(stdout);
-    buf[len] = '\0';
-    printf("service:%s",buf);
+    buf[ret] = '\0';
+    printf("service:%s\n",buf);
 }
 
 void Client::Close()

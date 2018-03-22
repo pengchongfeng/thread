@@ -56,7 +56,7 @@ void Service::Accept()
 void Service::Send()
 {
     printf("send...\n");
-    send(clientfd, "hello client!", strlen("hello client!") + 1, 0);
+    send(clientfd, "hello client!", strlen("hello client!"), 0);
     fflush(stdout);
 }
 
@@ -65,7 +65,8 @@ void Service::Recv()
     char buf[1024] = {0};
 
     printf("recv...\n");
-    recv(clientfd, buf, sizeof(buf), 0);
+    int ret = recv(clientfd, buf, sizeof(buf), 0);
+    buf[ret] = '\0';
     printf("client:%s\n", buf);
 }
 
