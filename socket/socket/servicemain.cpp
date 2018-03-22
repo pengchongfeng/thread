@@ -2,7 +2,7 @@
 
 int main(void)
 {
-    ServiceAccept service;
+    Service *service = ServiceAccept();
     service.Init();
     service.BindListen();
     service.Accept();
