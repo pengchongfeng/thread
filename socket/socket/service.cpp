@@ -10,7 +10,7 @@
 #include <string.h>
 #include <fcntl.h>
 
-void Service::Init()
+void ServiceAccept::Init()
 {
     fd = socket(AF_INET, SOCK_STREAM, 0);
     if(-1 == fd)
@@ -19,7 +19,7 @@ void Service::Init()
     }
 }
 
-void Service::BindListen()
+void ServiceAccept::BindListen()
 {
     int flags = fcntl(fd, F_GETFL, 0);
     flags = flags & (~O_NONBLOCK);
@@ -42,7 +42,7 @@ void Service::BindListen()
     listen(fd,1024);
 }
 
-void Service::Accept()
+void ServiceAccept::Accept()
 {
     struct sockaddr_in addr2;
     memset(&addr2, 0, sizeof(addr2));
@@ -53,14 +53,14 @@ void Service::Accept()
     clientfd = accept(fd, (struct sockaddr *)&addr2, &len);
 }
 
-void Service::Send()
+void ServiceAccept::Send()
 {
     printf("send...\n");
     send(clientfd, "hello client!", strlen("hello client!"), 0);
     fflush(stdout);
 }
 
-void Service::Recv()
+void ServiceAccept::Recv()
 {
     char buf[1024] = {0};
 
@@ -70,7 +70,7 @@ void Service::Recv()
     printf("client:%s\n", buf);
 }
 
-void Service::Close()
+void ServiceAccept::Close()
 {
     printf("close...\n");
     close(clientfd);
